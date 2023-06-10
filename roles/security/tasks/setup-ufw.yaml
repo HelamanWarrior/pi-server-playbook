@@ -23,7 +23,7 @@
 - name: Allow incoming from Soulseek
   ufw:
     rule: allow
-    port: 50300
+    port: "50300"
 
 - name: Enable UFW
   ufw:

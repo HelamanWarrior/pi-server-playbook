@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  ghost:
+    image: ghost:alpine
+    restart: unless-stopped
+    ports:
+      - 2368:2368
+    env_file:
+      - .env
+    environment:
+      database__client: mysql
+      database__connection__host: mysql
+      database__connection__user: root
+      database__connection__password: ${DB_PASSWORD}
+      database__connection__database: ghost
+      url: ${SITE_URL}
+    volumes:
+      - ./data:/var/lib/ghost/content
+    links:
+      - mysql
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./mysql:/var/lib/mysql

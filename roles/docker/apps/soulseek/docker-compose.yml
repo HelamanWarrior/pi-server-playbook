@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  soulseek:
+    image: slskd/slskd 
+    container_name: slskd
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - SLSKD_REMOTE_CONFIGURATION=true
+      - SLSKD_USERNAME=${WEBUI_USERNAME}
+      - SLSKD_PASSWORD=${WEBUI_PASSWORD}
+      - SLSKD_SLSK_USERNAME=${SOULSEEK_USERNAME}
+      - SLSKD_SLSK_PASSWORD=${SOULSEEK_PASSWORD}
+      - SLSKD_SHARED_DIR=/shared
+    ports:
+      - 5030:5030
+      - 5031:5031
+      - 50300:50300
+    volumes:
+      - ./data:/app
+      - ~/media/music:/shared
