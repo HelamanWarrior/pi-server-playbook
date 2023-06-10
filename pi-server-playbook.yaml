@@ -1,0 +1,32 @@
+- name: Configure the raspberry pi server
+  hosts: clients
+  become: true
+
+  tasks:
+    - name: "Update Apt Cache"
+      apt:
+        update_cache: yes
+
+    - name: "Install Common packages"
+      apt:
+        name: 
+          - vim
+          - docker-compose
+          - ufw
+          - unattended-upgrades
+        state: latest
+
+    - include: roles/security/tasks/setup-fail2ban.yaml
+    - include: roles/security/tasks/setup-ufw.yaml
+
+    - name: "Create Application directories"
+      become_user: parker
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - "~/ghost"
+        - "~/portainer"
+        - "~/soulseek"
+        - "~/syncthing"
