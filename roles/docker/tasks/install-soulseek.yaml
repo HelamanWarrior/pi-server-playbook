@@ -1,0 +1,12 @@
+---
+- name: "Configure Soulseek"
+  become_user: parker
+  copy:
+    src: ../apps/soulseek/
+    dest: ~/soulseek/
+
+- name: "Run Soulseek"
+  become_user: parker
+  docker_compose:
+    project_src: ~/soulseek/
+    state: present

@@ -1,0 +1,12 @@
+---
+- name: "Configure Miniflux"
+  become_user: parker
+  copy:
+    src: ../apps/miniflux/
+    dest: ~/miniflux/
+
+- name: "Run Miniflux"
+  become_user: parker
+  docker_compose:
+    project_src: ~/miniflux/
+    state: present
