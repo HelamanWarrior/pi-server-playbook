@@ -31,6 +31,7 @@ More to come in the future.
 This is not production ready.
 
 TODO:
+- [ ] *Maybe use templates* instead of manually copying docker-compose files
 - [ ] Install Docker
 - [ ] Auto update Docker containers
 - [ ] Fix file permissions created by Docker containers
