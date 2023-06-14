@@ -1,19 +1,8 @@
 ---
-- name: "Install Fail2Ban"
-  apt:
-    name: fail2ban
-    state: latest
+- name: "install fail2ban"
+  apt: name=fail2ban state=present
 
-- name: "Copy Fail2Ban configuration"
-  copy:
-    src: /etc/fail2ban/jail.conf
-    dest: /etc/fail2ban/jail.local
-    owner: root
-    group: root
-    mode: "0644"
-    remote_src: true
-
-- name: Restart Fail2Ban
-  service:
-    name: fail2ban
-    state: restarted
+- name: "copy fail2ban configuration"
+  template: src=templates/fail2ban.conf.j2 dest=/etc/fail2ban/jail.local
+  notify:
+    - restart fail2ban

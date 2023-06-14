@@ -1,11 +1,11 @@
 ---
-- name: "Configure Ghost"
+- name: "configure ghost"
   become_user: parker
   copy:
     src: ../apps/ghost/
     dest: ~/ghost/
 
-- name: "Run Ghost"
+- name: "run ghost"
   become_user: parker
   docker_compose:
     project_src: ~/ghost/

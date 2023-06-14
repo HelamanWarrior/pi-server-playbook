@@ -32,4 +32,7 @@ This is not production ready.
 
 TODO:
 - [ ] Install Docker
+- [ ] Auto update Docker containers
+- [ ] Fix file permissions created by Docker containers
+- [ ] More flexible docker-compose configurations
 - [ ] Samba Media Sharing

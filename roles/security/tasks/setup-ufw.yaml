@@ -1,30 +1,35 @@
 ---
-- name: Install UFW
-  apt:
-    name:
-      - ufw
-    state: latest
+- name: "ensure ufw installed"
+  apt: name=ufw state=present
 
-- name: Deny incoming connections
+- name: "deny incoming connections"
   ufw:
     rule: deny
     direction: in
+  notify:
+  - restart ufw
 
-- name: Allow outgoing connections
+- name: "allow outgoing connections"
   ufw:
     rule: allow
     direction: out
+  notify:
+  - restart ufw
 
-- name: Allow SSH connections
+- name: "allow ssh connections"
   ufw:
     rule: allow
     port: ssh
+  notify:
+  - restart ufw
 
-- name: Allow incoming from Soulseek
+- name: "allow incoming from soulseek"
   ufw:
     rule: allow
     port: "50300"
+  notify:
+  - restart ufw
 
-- name: Enable UFW
+- name: "enable ufw service"
   ufw:
     state: enabled

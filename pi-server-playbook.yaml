@@ -4,12 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: "Update Apt Cache"
-      apt:
-        update_cache: yes
-        cache_valid_time: 3600
-      register: result
-      until: result is succeeded
+    - include: roles/maintenance/tasks/update-apt-cache.yaml
 
     - name: "Install Common packages"
       apt:
