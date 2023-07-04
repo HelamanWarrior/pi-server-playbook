@@ -5,6 +5,7 @@ services:
     image: slskd/slskd 
     container_name: slskd
     restart: unless-stopped
+    user: "1000:1000"
     env_file:
       - .env
     environment:
@@ -20,4 +21,4 @@ services:
       - 50300:50300
     volumes:
       - ./data:/app
-      - ~/media/music:/shared
+      - ~/media/music:/shared:ro

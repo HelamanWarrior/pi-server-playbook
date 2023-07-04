@@ -1,0 +1,12 @@
+---
+- name: "configure navidrome"
+  become_user: parker
+  copy:
+    src: ../apps/navidrome/
+    dest: ~/navidrome/
+
+- name: "run navidrome"
+  become_user: parker
+  docker_compose:
+    project_src: ~/navidrome/
+    state: present

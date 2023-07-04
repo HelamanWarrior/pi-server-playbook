@@ -1,0 +1,8 @@
+---
+- name: "configure dockcheck cron job"
+  cron:
+    name: "run dockcheck script"
+    user: parker
+    minute: 0
+    hour: 0
+    job: "/home/parker/scripts/dockcheck.sh -ap"

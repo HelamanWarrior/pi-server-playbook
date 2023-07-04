@@ -1,0 +1,18 @@
+---
+- name: "copy music watch script"
+  copy:
+    src: ../watch_dir.sh
+    dest: /usr/bin/watch_dir.sh
+
+- name: "set script permissions"
+  file:
+    path: /usr/bin/watch_dir.sh
+    mode: "0755"
+    state: file
+
+- name: "add crontab entry for watch script"
+  cron:
+    name: Run watch_dir.sh at reboot
+    user: parker
+    special_time: reboot
+    job: /usr/bin/watch_dir.sh
