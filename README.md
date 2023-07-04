@@ -25,6 +25,12 @@ blaahhblahhblahh basic boring server stuff...
 - Miniflux (RSS reader)
 - slskd (SoulSeek client)
 
+## Auto updating Docker containers
+
+Using [Dockcheck](https://github.com/mag37/dockcheck) to auto update stuff.
+I haven't had very much luck with [watchtower](https://containrrr.dev/watchtower/).
+Dockcheck with a cronjob, seems to get the job done.
+
 ---
 
 More to come in the future.
@@ -33,7 +39,7 @@ This is not production ready.
 TODO:
 - [ ] *Maybe use templates* instead of manually copying docker-compose files
 - [ ] Install Docker
-- [ ] Auto update Docker containers
+- [x] Auto update Docker containers (still testing)
 - [ ] Fix file permissions created by Docker containers
 - [ ] More flexible docker-compose configurations
 - [ ] Samba Media Sharing
