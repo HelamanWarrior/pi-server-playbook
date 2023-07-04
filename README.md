@@ -24,6 +24,7 @@ blaahhblahhblahh basic boring server stuff...
 - Ghost
 - Miniflux (RSS reader)
 - slskd (SoulSeek client)
+  - auto transfer downloads to music folder using inotify
 
 ## Auto updating Docker containers
 
