@@ -28,9 +28,7 @@ blaahhblahhblahh basic boring server stuff...
 
 ## Auto updating Docker containers
 
-Using [Dockcheck](https://github.com/mag37/dockcheck) to auto update stuff.
-I haven't had very much luck with [watchtower](https://containrrr.dev/watchtower/).
-Dockcheck with a cronjob, seems to get the job done.
+Running watchtower as a cronjob updating and recreating all containers over night.
 
 ---
 
