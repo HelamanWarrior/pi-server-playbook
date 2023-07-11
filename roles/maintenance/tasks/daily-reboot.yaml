@@ -1,0 +1,8 @@
+---
+- name: "configure daily reboot cron job"
+  cron:
+    name: "daily reboot"
+    user: root
+    minute: 0
+    hour: 2 
+    job: "/sbin/shutdown -r now"
