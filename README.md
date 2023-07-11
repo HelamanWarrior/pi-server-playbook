@@ -41,6 +41,7 @@ TODO:
 - [ ] *Maybe use templates* instead of manually copying docker-compose files
 - [ ] Install Docker
 - [x] Auto update Docker containers (still testing)
-- [ ] Fix file permissions created by Docker containers
+- [x] Fix file permissions created by Docker containers
+  - Figured out just use ``user: "1000:1000"`` in docker-compose file
 - [ ] More flexible docker-compose configurations
 - [ ] Samba Media Sharing
