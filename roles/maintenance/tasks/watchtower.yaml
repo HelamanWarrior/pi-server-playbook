@@ -2,7 +2,7 @@
 - name: "configure watchtower update cron job"
   cron:
     name: "watchtower update"
-    user: parker
+    user: "{{ username }}"
     minute: 0
     hour: 1 
     job: "docker run  -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --monitor-only --run-once --no-startup-message --cleanup --remove-volumes --include-restarting"

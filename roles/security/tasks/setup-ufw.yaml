@@ -26,23 +26,16 @@
 - name: "allow soulseek port"
   ufw:
     rule: allow
-    port: 50300
+    port: "50300"
   notify:
   - restart ufw
 
-- name: "allow navidrome port"
+- name: "allow wireguard port"
   ufw:
     rule: allow
-    port: 4533
+    port: "51820"
   notify:
-    - restart ufw
-
-- name: "allow pairdrop port"
-  ufw:
-    rule: allow
-    port: 3000
-  notify:
-    - restart ufw
+  - restart ufw
 
 - name: "enable ufw service"
   ufw:

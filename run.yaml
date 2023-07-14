@@ -1,0 +1,28 @@
+- name: Configure the raspberry pi server
+  hosts: clients
+  become: true
+  gather_facts: false
+
+  tasks:
+    - include: roles/maintenance/tasks/update-apt.yaml
+
+    - include: roles/maintenance/tasks/watchtower.yaml
+    - include: roles/maintenance/tasks/daily-reboot.yaml
+
+    - include: roles/security/tasks/setup-fail2ban.yaml
+    - include: roles/security/tasks/setup-ufw.yaml
+
+    - include: roles/docker/tasks/portainer.yaml
+    - include: roles/docker/tasks/pihole.yaml
+    - include: roles/docker/tasks/wg-easy.yaml
+    - include: roles/docker/tasks/syncthing.yaml
+    - include: roles/docker/tasks/ghost.yaml
+    - include: roles/docker/tasks/soulseek.yaml
+
+    - include: roles/scripts/tasks/setup-soulseek-watch.yaml
+
+  handlers:
+    - name: restart ufw
+      service:
+        name: ufw
+        state: restarted

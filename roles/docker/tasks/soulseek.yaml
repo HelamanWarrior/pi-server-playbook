@@ -1,0 +1,12 @@
+---
+- name: "configure soulseek"
+  become_user: "{{ username }}"
+  copy:
+    src: ../apps/soulseek/
+    dest: "{{ docker_dir }}/soulseek/"
+
+- name: "run soulseek"
+  become_user: "{{ username }}"
+  docker_compose:
+    project_src: "{{ docker_dir }}/soulseek/"
+    state: present

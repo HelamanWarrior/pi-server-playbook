@@ -20,9 +20,8 @@ blaahhblahhblahh basic boring server stuff...
 ## Install Docker applications
 
 - Portainer
-- NginxProxyManager
-- Ghost
-- Miniflux (RSS reader)
+- WireGuard
+- PiHole
 - slskd (SoulSeek client)
   - auto transfer downloads to music folder using inotify
 

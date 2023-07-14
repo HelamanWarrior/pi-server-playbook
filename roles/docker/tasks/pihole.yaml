@@ -1,0 +1,12 @@
+---
+- name: "configure pihole"
+  become_user: "{{ username }}"
+  copy:
+    src: ../apps/pihole/
+    dest: "{{ docker_dir }}/pihole/"
+
+- name: "run pihole"
+  become_user: "{{ username }}"
+  docker_compose:
+    project_src: "{{ docker_dir }}/pihole/"
+    state: present

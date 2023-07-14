@@ -13,6 +13,6 @@
 - name: "add crontab entry for watch script"
   cron:
     name: Run watch_dir.sh at reboot
-    user: parker
+    user: "{{ username }}"
     special_time: reboot
     job: /usr/bin/watch_dir.sh

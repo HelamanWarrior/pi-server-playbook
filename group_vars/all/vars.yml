@@ -1,0 +1,19 @@
+username: parker
+shell: /bin/bash
+
+timezone: America/Denver
+
+docker_dir: /home/{{ username }}/Docker
+
+extra_packages:
+  - vim
+  - htop
+  - unattended-upgrades
+  - python3
+  - python3-pip
+  - docker-compose
+  - inotify-tools
+
+lan_subnet: 192.168.1.0/24
+lan_base: "{{ lan_subnet}} | regex_replace('.0/[0-9]{2}', '') }}"
+homeserver_ip: "{{ lan_subnet}}.196"

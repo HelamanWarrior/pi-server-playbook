@@ -1,0 +1,12 @@
+---
+- name: "configure ghost"
+  become_user: "{{ username }}"
+  copy:
+    src: ../apps/ghost/
+    dest: "{{ docker_dir }}/ghost/"
+
+- name: "run ghost"
+  become_user: "{{ username }}"
+  docker_compose:
+    project_src: "{{ docker_dir }}/ghost/"
+    state: present

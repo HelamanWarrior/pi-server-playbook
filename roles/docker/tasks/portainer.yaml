@@ -1,0 +1,12 @@
+---
+- name: "configure portainer"
+  become_user: "{{ username }}"
+  copy:
+    src: ../apps/portainer/
+    dest: "{{ docker_dir }}/portainer/"
+
+- name: "run portainer"
+  become_user: "{{ username }}"
+  docker_compose:
+    project_src: "{{ docker_dir }}/portainer/"
+    state: present

@@ -1,0 +1,12 @@
+---
+- name: "configure syncthing"
+  become_user: "{{ username }}"
+  copy:
+    src: ../apps/syncthing/
+    dest: "{{ docker_dir }}/syncthing/"
+
+- name: "run syncthing"
+  become_user: "{{ username }}"
+  docker_compose:
+    project_src: "{{ docker_dir }}/syncthing/"
+    state: present

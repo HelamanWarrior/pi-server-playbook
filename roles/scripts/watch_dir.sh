@@ -11,8 +11,6 @@ while true; do
   inotifywatch -e modify -e create -e moved_to -t 1 "$source" 2>/dev/null |
       grep total && 
 
-  ## The -u option to cp causes it to only copy files
-  ## that are newer in $source than in $target. Any files
-  ## not present in $target will be copied.
-  rsync -rc "$source/" "$target/" --remove-source-files
+  sleep 5 # prevent syncing before files are complete
+  rsync -ac "$source/" "$target/" --remove-source-files
 done
